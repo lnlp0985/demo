@@ -1,0 +1,18 @@
+drop table if exists dmo_user;
+CREATE TABLE dmo_user (
+  id  varchar(64) not null,
+  enabled boolean not null,
+  login varchar(255) not null,
+  pwd varchar(255) not null,
+  email  varchar(64),
+  phone  varchar(64),
+  version integer,
+  name varchar(255),
+  created_date timestamp,
+  status integer,
+
+  primary key (id),
+  CONSTRAINT idx_user_username UNIQUE(login),
+  CONSTRAINT idx_user_email UNIQUE(email),
+  CONSTRAINT idx_user_phone UNIQUE(phone)
+);
